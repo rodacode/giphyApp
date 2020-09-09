@@ -8,6 +8,6 @@ describe('Header [COMPONENT]', () => {
         render(<Header />);
     })
     test('renders header main container', async () => {
-        expect(screen.getByTestId('header__container')).toBeInTheDocument()
+        expect(screen.getByTestId('header__container')).toBeInTheDocument();
       });
 });
