@@ -1,7 +1,7 @@
 import React from "react";
-import GifsList from "./Gifslist";
+import GifsList from "../Gifslist";
 import { render, screen } from '@testing-library/react';
-import  mockResponse from '../../mocks/mockResponse.json';
+import  mockResponse from '../../../mocks/mockResponse.json';
 
 const gifs = mockResponse.data;
 

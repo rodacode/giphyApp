@@ -1,9 +1,9 @@
 import React from "react";
-import Search from "./Search";
+import Search from "../Search";
 import { render, screen,fireEvent } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux'
-import { store } from "../../reducers";
+import { store } from "../../../reducers";
 
 let spyMiddleware;
 
