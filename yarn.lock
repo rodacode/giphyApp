@@ -10020,6 +10020,11 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
+spy-middleware@^1.2.0:
+  version "1.2.0"
+  resolved "https://agency-commerce.pkgs.visualstudio.com/_packaging/Default/npm/registry/spy-middleware/-/spy-middleware-1.2.0.tgz#1f700953c4ab7158f6515d07b350be7e15a2a468"
+  integrity sha1-H3AJU8SrcVj2UV0Hs1C+fhWipGg=
+
 sshpk@^1.7.0:
   version "1.16.1"
   resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.16.1.tgz#fb661c0bef29b39db40769ee39fa70093d6f6877"

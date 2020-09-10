@@ -5,6 +5,8 @@ import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux'
 import { store } from "../../reducers";
 
+let spyMiddleware;
+
 describe("Search [COMPONENT]", () => {
   beforeEach(() => {
     render(<Provider store={store}><Search /></Provider>);
@@ -25,16 +27,5 @@ describe("Search [COMPONENT]", () => {
     await userEvent.type(searchInput, 'ABA');
 
     expect(searchInput.value).toBe('ABA');
-  });
-
-  test("it should call the handleSearch function when search button is clicked", () => {
-
-    const handleSearch = jest.fn();
-
-    const searchButton = screen.getByTestId("search__button");
-    fireEvent.click(searchButton);
-    screen.debug();
-
-    expect(handleSearch).toBeCalled();
   });
 });

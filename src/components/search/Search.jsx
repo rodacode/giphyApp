@@ -17,7 +17,6 @@ const Search = () => {
   };
 
   const handleSearch = () => {
-    console.log("wow");
     dispatch(fetchSearchedGifs(type, gifPerPage, rating, offset, inputValue));
     dispatch({ type: SET_IS_TRENDING, payload: false });
     dispatch({ type: SET_QUERY, payload: inputValue });
