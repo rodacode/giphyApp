@@ -7,10 +7,10 @@ import { store } from "../../reducers";
 
 describe('Home [COMPONENT]', () => {
 
-    beforeEach(async () => {
+    beforeEach(() => {
         render(<Provider store={store}><Home /></Provider>);
     })
-    test('renders home main container', async () => {
+    test('renders home main container', () => {
         expect(screen.getByTestId('home__container')).toBeInTheDocument();
       });
 });

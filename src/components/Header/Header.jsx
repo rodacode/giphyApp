@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
+import Search from '../search/Search';
 
 const Header = () => {
-  const [inputValue, setInputValue] = useState();
 
   return (
     <div className="header__container" data-testid="header__container">
-      <input value={inputValue} />
-      <button onClick={()=>{}}>Search</button>
+      <Search />
     </div>
   );
 };

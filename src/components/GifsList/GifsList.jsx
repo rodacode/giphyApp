@@ -23,9 +23,8 @@ const GifsList = ({ gifs }) => {
       >
         {gifs &&
           gifs.map((gif) => (
-            <div data-testid="gif__item">
+            <div key={gif.id} data-testid="gif__item">
               <Gif
-                key={gif.id}
                 gif={gif}
                 width={"100%"}
                 onGifClick={onGifClick}
