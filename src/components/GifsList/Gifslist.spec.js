@@ -9,8 +9,8 @@ describe("GifsList [COMPONENT]", () => {
   test("renders GifsList component", async () => {
     expect(screen.getByTestId("gifsList__container")).toBeInTheDocument();
   });
-  test("should render 10 items", async () => {
+  test("should render 20 items", async () => {
     const items = screen.getAllByTestId("gif__item");
-    expect(items).toHaveLength(3);
+    expect(items.length).toBe(20);
   });
 });
