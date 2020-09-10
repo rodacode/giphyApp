@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import mockResponse from "../../mocks/mockResponse.json";
+import React from "react";
 
-const GifsList = () => {
-  const [items, setItems] = useState(mockResponse);
+const GifsList = ({gifs}) => {
   return (
     <div className="gifsList__container" data-testid="gifsList__container">
-      {items.data.map((item) => (
-        <div key={item.id} data-testid="gif__item">
-          <p>{item.title}</p>
+      {gifs && gifs.map((gif) => (
+        <div key={gif.id} data-testid="gif__item">
+          <p>{gif.title}</p>
         </div>
       ))}
     </div>

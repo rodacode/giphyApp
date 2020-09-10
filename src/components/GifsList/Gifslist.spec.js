@@ -1,10 +1,13 @@
 import React from "react";
 import GifsList from "./Gifslist";
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react';
+import  mockResponse from '../../mocks/mockResponse.json';
+
+const gifs = mockResponse.data;
 
 describe("GifsList [COMPONENT]", () => {
   beforeEach(async () => {
-    render(<GifsList />);
+    render(<GifsList gifs={gifs}/>);
   });
   test("renders GifsList component", async () => {
     expect(screen.getByTestId("gifsList__container")).toBeInTheDocument();
