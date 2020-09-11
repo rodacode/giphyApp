@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_IS_TRENDING, SET_QUERY } from "../../actions";
 import { fetchSearchedGifs } from "../../helpers/fetchGifs";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import "./search.scss";
+
 
 const Search = () => {
   const [inputValue, setInputValue] = useState();
@@ -24,14 +28,28 @@ const Search = () => {
 
   return (
     <div className="search__container" data-testid="search__container">
-      <input
-        value={inputValue}
-        onChange={handleOnChange}
-        data-testid="search__input"
-      />
-      <button onClick={handleSearch} data-testid="search__button">
-        Search
-      </button>
+        <TextField
+          id="outlined-basic"
+          label="Search gifs of stickers..."
+          className="search__input"
+          variant="outlined"
+          value={inputValue}
+          onChange={handleOnChange}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              handleSearch();
+            }
+          }}
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleSearch}
+          data-testid="search__button"
+        >
+          Search
+        </Button>
     </div>
   );
 };

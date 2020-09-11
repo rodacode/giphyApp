@@ -4,6 +4,8 @@ import {
   LOAD_GIFS_PENDING,
   LOAD_GIFS_SUCCESS,
   LOAD_GIFS_FAILED,
+  SET_IS_TRENDING,
+  SET_QUERY,
 } from "../actions";
 
 const initialState = {
@@ -25,24 +27,26 @@ const mainReducer = (state = initialState, action) => {
         isLoading: true,
       };
     case LOAD_GIFS_SUCCESS:
-      if (!state.isFirstLoad) {
-        return {
-          ...state,
-          items: [...state.items, ...action.payload],
-          isLoading: false,
-        };
-      } else {
-        return {
-          ...state,
-          items: action.payload,
-          isLoading: false,
-        };
-      }
+      return {
+        ...state,
+        items: action.payload,
+        isLoading: false,
+      };
     case LOAD_GIFS_FAILED:
       return {
         ...state,
         errors: action.payload,
         isLoading: false,
+      };
+    case SET_QUERY:
+      return {
+        ...state,
+        query: action.payload,
+      };
+    case SET_IS_TRENDING:
+      return {
+        ...state,
+        isTrending: action.payload,
       };
     default:
       return state;

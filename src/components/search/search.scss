@@ -1,0 +1,10 @@
+.search__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding:20px;
+    .search__input{
+        margin: 0 20px;
+        width: 75%;
+    }
+}

@@ -5,8 +5,6 @@ import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux'
 import { store } from "../../../reducers";
 
-let spyMiddleware;
-
 describe("Search [COMPONENT]", () => {
   beforeEach(() => {
     render(<Provider store={store}><Search /></Provider>);
@@ -23,7 +21,8 @@ describe("Search [COMPONENT]", () => {
 
   test("it should change the input value when typed in th input", async () => {
 
-    const searchInput = screen.getByTestId("search__input");
+    const searchInput = screen.getByRole('textbox');
+
     await userEvent.type(searchInput, 'ABA');
 
     expect(searchInput.value).toBe('ABA');
