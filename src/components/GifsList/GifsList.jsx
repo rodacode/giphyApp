@@ -1,6 +1,7 @@
 import React from "react";
 import { Gif } from "@giphy/react-components";
 import Masonry from "react-masonry-css";
+import "./gifsList.scss";
 
 const GifsList = ({ gifs }) => {
   const onGifClick = (gif, e) => {

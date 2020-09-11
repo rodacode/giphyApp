@@ -5,9 +5,7 @@ import GifsList from "../../components/gifsList/GifsList";
 import { fetchTrendingGifs, fetchSearchedGifs } from "../../helpers/fetchGifs";
 
 const Home = () => {
-    const isTrending = useSelector((state) => state.isTrending);
     const items = useSelector((state) => state.items);
-    const query = useSelector((state) => state.query);
     const type = useSelector((state) => state.type);
     const gifPerPage = useSelector((state) => state.gifPerPage);
     const rating = useSelector((state) => state.rating);

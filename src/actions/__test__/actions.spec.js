@@ -34,4 +34,21 @@ describe('actions', () => {
         payload: query
       })
   })
+  
+  it('should create an action to set search type gifs or stickers', () => {
+    const type = "gifs"
+    expect(actions.setType(type)).toEqual({
+        type: actions.SET_TYPE,
+        payload: type
+      })
+  })
+
+  it('should create an action to set search results sort by date', () => {
+    const sortByDate = true
+    expect(actions.sortByDate(sortByDate)).toEqual({
+        type: actions.SORT_BY_DATE,
+        payload: sortByDate
+      })
+  })
+
 })
