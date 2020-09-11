@@ -19,6 +19,10 @@ describe("Search [COMPONENT]", () => {
     expect(screen.getByTestId("search__button")).toBeInTheDocument();
   });
 
+  test("it should render the trending button", () => {
+    expect(screen.getByTestId("trending__button")).toBeInTheDocument();
+  });
+
   test("it should change the input value when typed in th input", async () => {
 
     const searchInput = screen.getByRole('textbox');

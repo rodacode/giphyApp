@@ -1,14 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_IS_TRENDING, SET_TYPE, SORT_BY_DATE } from "../../actions";
-import { fetchTrendingGifs, fetchSearchedGifs } from "../../helpers/fetchGifs";
+import { SET_TYPE, SORT_BY_DATE } from "../../actions";
 import Switch from "@material-ui/core/Switch";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import "./searchOptions.scss";
 
 const SearchOptions = ({ type,gifPerPage, rating, offset }) => {
-  const isTrending = useSelector((state) => state.isTrending);
   const sortByDate = useSelector((state) => state.sortByDate);
   const query = useSelector((state) => state.query);
 
@@ -16,11 +14,6 @@ const SearchOptions = ({ type,gifPerPage, rating, offset }) => {
 
   const setValue = (selector, value) => {
     switch (selector) {
-      case "isTrending":
-        if (!isTrending) {
-          dispatch(fetchTrendingGifs(type, gifPerPage, rating, offset));
-        }
-        dispatch({ type: SET_IS_TRENDING, payload: value });
       case "type":
           dispatch({ type: SET_TYPE, payload: value });
         break;
@@ -31,19 +24,9 @@ const SearchOptions = ({ type,gifPerPage, rating, offset }) => {
     }
   };
   return (
-      <div className="searchOptions__container">
+      <div className="searchOptions__container" data-testid="searchOptions__container">
       <FormControlLabel
-        control={
-          <Switch
-            checked={isTrending}
-            onChange={() => setValue("isTrending", !isTrending)}
-            color="primary"
-            name="trending"
-          />
-        }
-        label="Trending"
-      />
-      <FormControlLabel
+      data-testid="switch__gifs"
         control={
           <Switch
             checked={type === "gifs"}
