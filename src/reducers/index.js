@@ -12,7 +12,7 @@ import {
   SORT_BY_DATE
 } from "../actions";
 
-const initialState = {
+export const initialState = {
   items: [],
   isLoading: false,
   errors: [],
@@ -25,7 +25,7 @@ const initialState = {
   sortByDate: false,
 };
 
-const mainReducer = (state = initialState, action) => {
+const mainReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case LOAD_GIFS_PENDING:
       return {

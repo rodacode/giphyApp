@@ -28,7 +28,12 @@ const GifsList = ({ gifs }) => {
         >
           {gifs.map((gif) => (
             <div key={gif.id} data-testid="gif__item">
-              <Gif gif={gif} width={"100%"} height={"auto"} onGifClick={onGifClick} />
+              <Gif
+                gif={gif}
+                width={"100%"}
+                height={"auto"}
+                onGifClick={onGifClick}
+              />
             </div>
           ))}
         </Masonry>
@@ -57,12 +62,24 @@ const GifsList = ({ gifs }) => {
         >
           <div className="gifModal__container">
             <Gif gif={modalGif} width={200} />
-            <span className="infoLabel">title</span> 
-            <p>{modalGif.title}</p>
-            <span className="infoLabel">user</span>
-            <p>{modalGif.username}</p>
-            <span className="infoLabel">rating</span>
-            <p>{modalGif.rating}</p>
+            {modalGif.title && (
+              <>
+                <span className="infoLabel">title</span>
+                <p>{modalGif.title}</p>
+              </>
+            )}
+            {modalGif.username && (
+              <>
+                <span className="infoLabel">user</span>
+                <p>{modalGif.username}</p>
+              </>
+            )}
+            {modalGif.rating && (
+              <>
+                <span className="infoLabel">rating</span>
+                <p>{modalGif.rating}</p>
+              </>
+            )}
             <div className="whatsappShare">
               <a href="whatsapp://send?text=LookMum" className="whatsappLink">
                 Share on whatsapp

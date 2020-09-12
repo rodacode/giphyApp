@@ -10,7 +10,6 @@ import "./search.scss";
 const Search = ({ type, gifPerPage, rating, offset }) => {
   const [inputValue, setInputValue] = useState();
   const dispatch = useDispatch();
-  const isTrending = useSelector((state) => state.isTrending);
 
   const handleOnChange = (e) => {
     setInputValue(e.target.value);
