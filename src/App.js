@@ -5,7 +5,7 @@ import Home from "./pages/home/Home";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import './App.scss';
+import './App.css';
 
 function App() {
 
