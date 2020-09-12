@@ -28,7 +28,7 @@ const GifsList = ({ gifs }) => {
         >
           {gifs.map((gif) => (
             <div key={gif.id} data-testid="gif__item">
-              <Gif gif={gif} width={"100%"} onGifClick={onGifClick} />
+              <Gif gif={gif} width={"100%"} height={"auto"} onGifClick={onGifClick} />
             </div>
           ))}
         </Masonry>
