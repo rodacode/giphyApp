@@ -1,4 +1,4 @@
-Giphy App 
+Giphy App <br />
 Made by Nicolás Hardmeier
 
 This project was created with react and create-react-app. It uses the flux(redux) pattern as a state management. The load of gifs and settings of the filter are all in the redux state.
@@ -13,7 +13,7 @@ When a user clicks on a gif, a modal window is displayed with the selected gif a
 
 ## Installation
 
-In the project directory,run in order to install the dependencies:
+In the project directory,in order to install the dependencies run:
 
 ### `yarn` or `npm install`
 
