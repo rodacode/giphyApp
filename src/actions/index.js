@@ -1,6 +1,9 @@
 export const LOAD_GIFS_PENDING = "LOAD_GIFS_PENDING";
 export const LOAD_GIFS_SUCCESS = "LOAD_GIFS_SUCCESS";
 export const LOAD_GIFS_FAILED = "LOAD_GIFS_FAILED";
+export const LOAD_MORE_GIFS_PENDING = "LOAD_MORE_GIFS_PENDING";
+export const LOAD_MORE_GIFS_SUCCESS = "LOAD_MORE_GIFS_SUCCESS";
+export const LOAD_MORE_GIFS_FAILED = "LOAD_MORE_GIFS_FAILED";
 export const SET_IS_TRENDING = 'SET_IS_TRENDING';
 export const SET_QUERY = 'SET_QUERY';
 export const SET_TYPE = 'SET_TYPE';
@@ -17,6 +20,20 @@ export const loadGifsSuccess = (gifs) => ({
 
 export const loadGifsFailed = (error) => ({
   type: LOAD_GIFS_FAILED,
+  payload: error,
+});
+
+export const loadMoreGifsPending = () => ({
+  type: LOAD_MORE_GIFS_PENDING,
+});
+
+export const loadMoreGifsSuccess = (gifs) => ({
+  type: LOAD_MORE_GIFS_SUCCESS,
+  payload: gifs,
+});
+
+export const loadMoreGifsFailed = (error) => ({
+  type: LOAD_MORE_GIFS_FAILED,
   payload: error,
 });
 

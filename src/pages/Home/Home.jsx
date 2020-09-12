@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Header from "../../components/header/Header";
 import GifsList from "../../components/gifsList/GifsList";
-import { fetchTrendingGifs, fetchSearchedGifs } from "../../helpers/fetchGifs";
+import { fetchGifs } from "../../helpers/fetchGifs";
 
 const Home = () => {
     const items = useSelector((state) => state.items);
@@ -13,13 +13,13 @@ const Home = () => {
     const dispatch = useDispatch();
  
     useEffect(() => {
-        dispatch(fetchTrendingGifs(type, gifPerPage, rating, offset));
+        dispatch(fetchGifs("trending", type, gifPerPage, rating, offset));
       }, []);
 
   return (
     <div className="home__container" data-testid="home__container">
       <Header />
-      <GifsList gifs={items}/>
+      <GifsList gifs={items} type={type} gifPerPage={gifPerPage} rating={rating} offset={offset}/>
     </div>
   );
 };

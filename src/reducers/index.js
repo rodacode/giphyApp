@@ -6,6 +6,9 @@ import {
   LOAD_GIFS_PENDING,
   LOAD_GIFS_SUCCESS,
   LOAD_GIFS_FAILED,
+  LOAD_MORE_GIFS_PENDING,
+  LOAD_MORE_GIFS_SUCCESS,
+  LOAD_MORE_GIFS_FAILED,
   SET_IS_TRENDING,
   SET_QUERY,
   SET_TYPE,
@@ -37,6 +40,7 @@ const mainReducer = (state = initialState, action = {}) => {
         ...state,
         items: action.payload,
         isLoading: false,
+        offset: 0
       };
     case LOAD_GIFS_FAILED:
       return {
@@ -44,6 +48,24 @@ const mainReducer = (state = initialState, action = {}) => {
         errors: action.payload,
         isLoading: false,
       };
+      case LOAD_MORE_GIFS_PENDING:
+        return {
+          ...state,
+          isLoading: true,
+        };
+      case LOAD_MORE_GIFS_SUCCESS:
+        return {
+          ...state,
+          items: [...state.items,...action.payload],
+          isLoading: false,
+          offset: state.offset + state.gifPerPage
+        };
+      case LOAD_MORE_GIFS_FAILED:
+        return {
+          ...state,
+          errors: action.payload,
+          isLoading: false,
+        };
     case SET_QUERY:
       return {
         ...state,

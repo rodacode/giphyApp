@@ -6,9 +6,8 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import "./searchOptions.scss";
 
-const SearchOptions = ({ type, gifPerPage, rating, offset }) => {
+const SearchOptions = ({ type }) => {
   const sortByDate = useSelector((state) => state.sortByDate);
-  const query = useSelector((state) => state.query);
 
   const dispatch = useDispatch();
 

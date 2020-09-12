@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { SET_IS_TRENDING, SET_QUERY, SORT_BY_DATE } from "../../actions";
-import { fetchSearchedGifs, fetchTrendingGifs } from "../../helpers/fetchGifs";
+import { fetchGifs } from "../../helpers/fetchGifs";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import SearchOptions from "../searchOptions/SearchOptions";
@@ -16,14 +16,14 @@ const Search = ({ type, gifPerPage, rating, offset }) => {
   };
 
   const handleSearch = () => {
-    dispatch(fetchSearchedGifs(type, gifPerPage, rating, offset, inputValue));
+    dispatch(fetchGifs("search",type, gifPerPage, rating, offset, inputValue));
     dispatch({ type: SET_IS_TRENDING, payload: false });
     dispatch({ type: SORT_BY_DATE, payload: false });
     dispatch({ type: SET_QUERY, payload: inputValue });
   };
 
   const handleTrending = () => {
-    dispatch(fetchTrendingGifs(type, gifPerPage, rating, offset));
+    dispatch(fetchGifs("trending",type, gifPerPage, rating, offset));
   };
 
   return (
