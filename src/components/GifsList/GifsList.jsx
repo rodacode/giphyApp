@@ -20,19 +20,23 @@ const GifsList = ({ gifs }) => {
 
   return (
     <div className="gifsList__container" data-testid="gifsList__container">
-      {gifs.length > 0 ?
-      <Masonry
-        breakpointCols={breakpoints}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-        {
-          gifs.map((gif) => (
+      {gifs.length > 0 ? (
+        <Masonry
+          breakpointCols={breakpoints}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          {gifs.map((gif) => (
             <div key={gif.id} data-testid="gif__item">
               <Gif gif={gif} width={"100%"} onGifClick={onGifClick} />
             </div>
-          )) }
-      </Masonry> : <h2 className="noGifs">Oops we couldn't find anything with that search term</h2>}
+          ))}
+        </Masonry>
+      ) : (
+        <h2 className="noGifs">
+          Oops we couldn't find anything with that search term
+        </h2>
+      )}
       {modalGif && (
         <div
           style={{
@@ -51,12 +55,19 @@ const GifsList = ({ gifs }) => {
             setModalGif(undefined);
           }}
         >
-          <Gif gif={modalGif} width={200} />
-          <div className="whatsappShare">
-            <a href="whatsapp://send?text=Look Mum" className="whatsappLink">
-              <i class="fa fa-whatsapp"></i>
-              whatsapp
-            </a>
+          <div className="gifModal__container">
+            <Gif gif={modalGif} width={200} />
+            <span className="infoLabel">title</span> 
+            <p>{modalGif.title}</p>
+            <span className="infoLabel">user</span>
+            <p>{modalGif.username}</p>
+            <span className="infoLabel">rating</span>
+            <p>{modalGif.rating}</p>
+            <div className="whatsappShare">
+              <a href="whatsapp://send?text=LookMum" className="whatsappLink">
+                Share on whatsapp
+              </a>
+            </div>
           </div>
         </div>
       )}

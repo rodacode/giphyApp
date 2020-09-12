@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
 
-  const font =  "'Concert One', cursive";
+  const font =  "'Ramabhadra', sans-serif";
 
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
