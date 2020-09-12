@@ -20,18 +20,19 @@ const GifsList = ({ gifs }) => {
 
   return (
     <div className="gifsList__container" data-testid="gifsList__container">
+      {gifs.length > 0 ?
       <Masonry
         breakpointCols={breakpoints}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {gifs &&
+        {
           gifs.map((gif) => (
             <div key={gif.id} data-testid="gif__item">
               <Gif gif={gif} width={"100%"} onGifClick={onGifClick} />
             </div>
-          ))}
-      </Masonry>
+          )) }
+      </Masonry> : <h2 className="noGifs">Oops we couldn't find anything with that search term</h2>}
       {modalGif && (
         <div
           style={{

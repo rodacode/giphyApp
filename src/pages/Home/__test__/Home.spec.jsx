@@ -1,8 +1,8 @@
 import React from "react";
-import Home from './Home';
+import Home from '../Home';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux'
-import { store } from "../../reducers";
+import { store } from "../../../reducers";
 
 
 describe('Home [COMPONENT]', () => {
